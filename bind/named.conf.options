@@ -1,0 +1,13 @@
+options {
+directory "/var/cache/bind";
+// ...
+// Lines truncated
+// ...
+auth-nxdomain no;
+listen-on port 53 { localhost; 192.168.0.0/16; };
+allow-query { any; };
+rrset-order {
+class IN type ANY name "*" order cyclic;
+};
+recursion yes;
+};

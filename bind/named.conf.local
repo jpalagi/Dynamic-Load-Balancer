@@ -1,0 +1,21 @@
+acl R1 { 192.168.0.0/16; };
+view R1 {
+match-clients { R1; };
+zone "org" IN {
+type master;
+file "/etc/bind/forward.R1";
+allow-update { none; };
+allow-transfer { any; };
+};
+};
+
+
+
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
